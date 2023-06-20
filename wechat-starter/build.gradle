@@ -1,6 +1,10 @@
-dependencies {
-    implementation project(":wechat")
+apply plugin: "java-library"
 
+dependencies {
+    // 依赖传递
+    api project(":wechat")
+
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }

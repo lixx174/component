@@ -8,6 +8,9 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
+ * 微信client{@link Client}的代理
+ * 每次调用前使用新的{@link DefaultClient}防止{@link org.apache.http.client.HttpClient}阻塞
+ *
  * @author jinx
  */
 @RequiredArgsConstructor
