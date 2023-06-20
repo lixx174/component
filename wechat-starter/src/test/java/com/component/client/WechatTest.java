@@ -1,6 +1,7 @@
 package com.component.client;
 
-import com.component.wechat.WechatConfiguration;
+import com.component.wechat.WechatAutoConfiguration;
+import com.component.wechat.WechatProperties;
 import com.component.wechat.core.Client;
 import com.component.wechat.core.DefaultClient;
 import com.component.wechat.exception.BusinessException;
@@ -33,7 +34,15 @@ import static org.mockito.Mockito.when;
 /**
  * @author jinx
  */
-public class ClientTest {
+public class WechatTest {
+
+    @Test
+    public void proxy() {
+        WechatProperties properties = new WechatProperties();
+        properties.setBusinessCheckEnable(true);
+        Client client = new WechatAutoConfiguration().client(properties);
+        System.out.println(client.toString());
+    }
 
     @Test
     @DisplayName("微信授权")
@@ -104,7 +113,7 @@ public class ClientTest {
         String mobileErrorResponse = getContentFromFile("mobile/response_error.json");
 
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
-        WechatConfiguration properties = WechatConfiguration.builder().build();
+        WechatProperties properties = new WechatProperties();
         DefaultClient client = new DefaultClient(httpClient, properties);
 
         CloseableHttpResponse accessResponse = mock(CloseableHttpResponse.class);
@@ -177,7 +186,8 @@ public class ClientTest {
 
         CloseableHttpClient httpClient = mock(CloseableHttpClient.class);
 
-        DefaultClient client = new DefaultClient(httpClient, WechatConfiguration.builder().build());
+        WechatProperties properties = new WechatProperties();
+        DefaultClient client = new DefaultClient(httpClient, properties);
 
         CloseableHttpResponse response = mock(CloseableHttpResponse.class);
         StatusLine statusLine = mock(StatusLine.class);

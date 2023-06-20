@@ -1,4 +1,5 @@
-import com.component.wechat.WechatConfiguration;
+package com.component.wechat;
+
 import com.component.wechat.core.Client;
 import com.component.wechat.core.DefaultClient;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +22,8 @@ public class ClientProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (Client.class == method.getDeclaringClass()) {
-            WechatConfiguration wechatConfiguration = WechatConfiguration.builder()
-                    .businessCheckEnable(properties.isBusinessCheckEnable())
-                    .build();
-
             // 每次使用新的httpClient  可防止阻塞
-            return method.invoke(new DefaultClient(HttpClients.createDefault(), wechatConfiguration), args);
+            return method.invoke(new DefaultClient(HttpClients.createDefault(), properties), args);
         }
 
         return method.invoke(this, args);

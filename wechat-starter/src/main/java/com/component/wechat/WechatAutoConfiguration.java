@@ -1,3 +1,5 @@
+package com.component.wechat;
+
 import com.component.wechat.core.Client;
 import com.component.wechat.core.DefaultClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

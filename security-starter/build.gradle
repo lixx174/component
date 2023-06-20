@@ -1,3 +1,4 @@
 dependencies {
+    implementation project(":wechat-starter")
     implementation "org.springframework.boot:spring-boot-starter-oauth2-authorization-server"
 }

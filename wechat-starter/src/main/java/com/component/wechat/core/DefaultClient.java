@@ -1,6 +1,6 @@
 package com.component.wechat.core;
 
-import com.component.wechat.WechatConfiguration;
+import com.component.wechat.WechatProperties;
 import com.component.wechat.exception.BusinessException;
 import com.component.wechat.exception.RestException;
 import com.component.wechat.model.AccessAndMobileRequest;
@@ -34,7 +34,7 @@ import java.net.URI;
 public class DefaultClient implements Client {
 
     private final CloseableHttpClient httpClient;
-    private final WechatConfiguration configuration;
+    private final WechatProperties properties;
     private final JacksonSupport jacksonSupport = new JacksonSupport();
 
 
@@ -92,7 +92,7 @@ public class DefaultClient implements Client {
     private <T extends WechatResponse> T toBean(String response, Class<T> exceptResponse) {
         T t = jacksonSupport.toBean(response, exceptResponse);
 
-        if (configuration.isBusinessCheckEnable() && !t.success()) {
+        if (properties.isBusinessCheckEnable() && !t.success()) {
             throw new BusinessException(t.errorTips());
         }
 
