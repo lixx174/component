@@ -1,24 +1,17 @@
-buildscript {
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.1.0")
-        classpath('com.github.shalousun:smart-doc-gradle-plugin:2.5.3')
-    }
-    repositories {
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://maven.aliyun.com/repository/spring" }
-        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
-        mavenCentral()
-    }
+plugins {
+    id 'org.springframework.boot' version '3.2.5' apply false
+    id 'io.spring.dependency-management' version '1.1.5' apply false
 }
 
-group = 'com.component'
+group = 'com.jinx.component'
 version = '1.0.0'
 
+apply plugin: 'java-platform'
+
 subprojects {
-    apply plugin: 'idea'
     apply plugin: 'java'
-    apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
     dependencies {
         compileOnly 'org.projectlombok:lombok'
@@ -31,9 +24,5 @@ subprojects {
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
         mavenCentral()
         mavenLocal()
-    }
-
-    tasks.named('test') {
-        useJUnitPlatform()
     }
 }

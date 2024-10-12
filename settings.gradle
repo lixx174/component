@@ -1,4 +1,3 @@
 rootProject.name = 'component'
-include 'security-starter'
-include 'wechat-starter'
+include 'web-starter'
 
