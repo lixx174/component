@@ -1,5 +1,6 @@
 description = 'web basic component and model'
 
+
 dependencies {
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
