@@ -1,4 +1,4 @@
-package com.jinx.component.application;
+package com.jinx.component.domain.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PageReply<T> {
+public class PageReply<T> implements Page<T> {
 
     /**
      * 当前页码
@@ -31,7 +31,7 @@ public class PageReply<T> {
     /**
      * 数据
      */
-    private List<T> records;
+    private List<T> content;
 
     public static <T> PageReply<T> of(Number page, Number size, Number pages, List<T> records) {
         return new PageReply<>(page, size, pages, records);

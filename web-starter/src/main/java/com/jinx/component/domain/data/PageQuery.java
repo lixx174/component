@@ -1,5 +1,6 @@
-package com.jinx.component.application;
+package com.jinx.component.domain.data;
 
+import com.jinx.component.domain.data.Pageable;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class PageQuery {
+public class PageQuery implements Pageable {
 
     /**
      * 当前页码(默认1)

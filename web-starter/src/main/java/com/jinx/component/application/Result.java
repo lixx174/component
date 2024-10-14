@@ -1,5 +1,6 @@
 package com.jinx.component.application;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,20 +12,12 @@ import lombok.Setter;
  **/
 @Getter
 @Setter
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Result<T> {
 
     private int code;
     private String msg;
     private T data;
-
-
-    /**
-     * FIXME 不序列化该方法
-     */
-    public boolean isSuccess() {
-        return code == 200;
-    }
 
     public static <T> Result<T> success() {
         return success((T) null);
