@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: Release Package
 
 on:
   push:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build project
         run: ./gradlew build
