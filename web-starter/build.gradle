@@ -2,9 +2,13 @@ description = 'web basic component and model'
 
 apply plugin: 'maven-publish'
 
+version = '1.1.1'
+
 dependencies {
 
 }
+
+print("====>    ${group} -- ${version}")
 
 publishing {
     publications {
@@ -16,11 +20,11 @@ publishing {
         def user = project.findProperty('gpr.user') ?: System.getenv('GPR_USER')
         def token = project.findProperty("gpr.token") ?: System.getenv("GPR_TOKEN")
 
-        print("********    ${user} -- ${token}")
+        println("********    ${user} -- ${token}")
 
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/lixx174/component")
+            url = uri("https://maven.pkg.github.com/lixx174")
             credentials {
                 username = user
                 password = token
