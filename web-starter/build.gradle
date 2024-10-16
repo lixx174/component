@@ -18,7 +18,7 @@ publishing {
 
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/${user}/why/${project.name}")
+            url = uri("https://maven.pkg.github.com/lixx174/component")
             credentials {
                 username = user
                 password = token
