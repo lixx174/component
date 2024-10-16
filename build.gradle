@@ -5,7 +5,6 @@ apply plugin: 'java-platform'
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'maven-publish'
 
     dependencies {
         compileOnly 'org.projectlombok:lombok:1.18.34'
@@ -21,26 +20,5 @@ subprojects {
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
         mavenCentral()
         mavenLocal()
-    }
-
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
-            }
-        }
-        repositories {
-            def user = project.findProperty('gpr.user') ?: System.getenv('GPR_USER')
-            def token = project.findProperty("gpr.token") ?: System.getenv("GPR_TOKEN")
-
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/${user}/${project.name}")
-                credentials {
-                    username = user
-                    password = token
-                }
-            }
-        }
     }
 }
