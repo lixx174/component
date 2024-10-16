@@ -31,7 +31,7 @@ jobs:
       - name: Publish to GitHub Packages
         run: ./gradlew publish
         env:
-          GPR_USER: ${{ secrets.GITHUB_ACTOR }}
+          GPR_USER: lixx174
           GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
