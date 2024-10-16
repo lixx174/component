@@ -32,12 +32,12 @@ jobs:
         run: ./gradlew publish
         env:
           GPR_USER: lixx174
-          GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            build/libs/*.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPR_TOKEN: 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
+#
+#      - name: Create GitHub Release
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          files: |
+#            build/libs/*.jar
+#        env:
+#          GITHUB_TOKEN: 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

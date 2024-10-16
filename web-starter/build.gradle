@@ -17,17 +17,12 @@ publishing {
         }
     }
     repositories {
-        def user = project.findProperty('gpr.user') ?: System.getenv('GPR_USER')
-        def token = project.findProperty("gpr.token") ?: System.getenv("GPR_TOKEN")
-
-        println("********    ${user} -- ${token}")
-
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/lixx174")
             credentials {
-                username = user
-                password = token
+                username = "lixx174"
+                password = "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"
             }
         }
     }
