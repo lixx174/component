@@ -16,6 +16,8 @@ publishing {
         def user = project.findProperty('gpr.user') ?: System.getenv('GPR_USER')
         def token = project.findProperty("gpr.token") ?: System.getenv("GPR_TOKEN")
 
+        print("********    ${user} -- ${token}")
+
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/lixx174/component")
