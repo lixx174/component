@@ -32,6 +32,7 @@ jobs:
 
       - name: Modify build.gradle with new version
         run: |
+          echo "----- Current version is: ${{ env.VERSION }} -----"
           sed -i "s/version = .*/version = '$(echo ${{ env.VERSION }})'/" build.gradle
 
       - name: Build project
