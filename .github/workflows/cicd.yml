@@ -31,13 +31,13 @@ jobs:
       - name: Publish to GitHub Packages
         run: ./gradlew publish
         env:
-          GPR_USER: lixx174
-          GPR_TOKEN: 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
-#
-#      - name: Create GitHub Release
-#        uses: softprops/action-gh-release@v1
-#        with:
-#          files: |
-#            build/libs/*.jar
-#        env:
-#          GITHUB_TOKEN: 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
+          GPR_USER: lixx174 # TODO 从 环境变量 获取
+          GPR_TOKEN: ${{secrets.PUBLISH_PAT}}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{secrets.PUBLISH_PAT}}

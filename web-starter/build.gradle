@@ -19,10 +19,13 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/lixx174")
+            url = uri("https://maven.pkg.github.com/lixx174/component")
+
+            def token = System.getenv("PUBLISH_PAT")
+            println("===> token  ${token}")
             credentials {
                 username = "lixx174"
-                password = "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"
+                password = token
             }
         }
     }
