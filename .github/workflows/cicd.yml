@@ -25,16 +25,13 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build project
-        run: ./gradlew build
-
-      - name: List files in build/libs
-        run: ls -al build/libs/
+        run: ./gradlew build --debug
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: ./build/libs/
+          path: build/libs
 
   publish:
     runs-on: ubuntu-latest
@@ -44,7 +41,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifacts
-          path: ./build/libs/
+          path: build/libs
 
       - name: Publish to GitHub Packages
         run: ./gradlew publish
