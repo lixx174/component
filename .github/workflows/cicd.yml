@@ -6,9 +6,8 @@ on:
       - master
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -27,17 +26,12 @@ jobs:
 
       - name: Build project
         run: ./gradlew build
-
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Publish to GitHub Packages
         run: ./gradlew publish
         env:
           GPR_USER: ${{github.actor}}
           GPR_TOKEN: ${{secrets.PUBLISH_PAT}}
-
-#      - name: Create GitHub Release
-#        uses: softprops/action-gh-release@v1
-#        with:
-#          files: |
-#            build/libs/*.jar
-#        env:
-#          GITHUB_TOKEN: ${{secrets.PUBLISH_PAT}}
