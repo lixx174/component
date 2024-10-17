@@ -3,7 +3,7 @@ description = 'web basic component and model'
 apply plugin: 'maven-publish'
 
 group = 'com.jinx.component'
-version = '1.1.5'
+version = '1.0.0'
 
 dependencies {
 

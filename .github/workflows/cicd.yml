@@ -24,6 +24,14 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Get current version from git
+        id: get_version
+        run: echo ::set-output name=VERSION::$(git describe --tags --abbrev=0)
+
+      - name: Modify build.gradle with new version
+        run: |
+          sed -i "s/version = .*/version = '$(echo ${{ steps.get_version.outputs.VERSION }})'/" build.gradle
+
       - name: Build project
         run: ./gradlew build
 
