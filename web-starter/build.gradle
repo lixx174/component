@@ -21,7 +21,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/lixx174/component")
 
-            def token = System.getenv("PUBLISH_PAT")
+            def token = System.getenv("GPR_TOKEN")
             println("===> token  ${token}")
             credentials {
                 username = "lixx174"
