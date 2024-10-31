@@ -29,6 +29,7 @@ public class Result<T> {
 
     public static <T> Result<T> success(Runnable task) {
         task.run();
+        System.out.println("task = " + task);
         return success();
     }
 
@@ -45,6 +46,7 @@ public class Result<T> {
      * @param <T>
      */
     public static <T> Result<T> of(int code, String msg, T data) {
+
         return new Result<>(code, msg, data);
     }
 
