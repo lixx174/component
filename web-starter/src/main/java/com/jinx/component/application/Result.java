@@ -39,4 +39,6 @@ public class Result<T> {
     public static <T> Result<T> of(int code, String msg, T data) {
         return new Result<>(code, msg, data);
     }
+
+    // commit at v002
 }
