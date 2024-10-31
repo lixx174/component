@@ -29,6 +29,7 @@ public class Result<T> {
 
     public static <T> Result<T> success(Runnable task) {
         task.run();
+        System.out.println("task = " + task);
         return success();
     }
 
@@ -36,7 +37,18 @@ public class Result<T> {
         return of(code, msg, null);
     }
 
+    /**
+     *  v001 commit
+     * @param code
+     * @param msg
+     * @param data
+     * @return
+     * @param <T>
+     */
     public static <T> Result<T> of(int code, String msg, T data) {
+
         return new Result<>(code, msg, data);
     }
+
+    // commit at v002
 }
