@@ -36,6 +36,14 @@ public class Result<T> {
         return of(code, msg, null);
     }
 
+    /**
+     *  v001 commit
+     * @param code
+     * @param msg
+     * @param data
+     * @return
+     * @param <T>
+     */
     public static <T> Result<T> of(int code, String msg, T data) {
         return new Result<>(code, msg, data);
     }
