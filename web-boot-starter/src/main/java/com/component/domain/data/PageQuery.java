@@ -1,6 +1,5 @@
-package com.jinx.component.domain.data;
+package com.component.domain.data;
 
-import com.jinx.component.domain.data.Pageable;
 import lombok.Getter;
 import lombok.Setter;
 

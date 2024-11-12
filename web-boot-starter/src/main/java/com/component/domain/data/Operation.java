@@ -1,4 +1,4 @@
-package com.jinx.component.domain.data;
+package com.component.domain.data;
 
 /**
  * 操作符

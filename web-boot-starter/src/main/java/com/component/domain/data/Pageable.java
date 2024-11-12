@@ -1,4 +1,4 @@
-package com.jinx.component.domain.data;
+package com.component.domain.data;
 
 /**
  * 分页领域接口  领域层使用该接口交互

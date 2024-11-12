@@ -2,11 +2,11 @@ description = 'web basic component and model'
 
 apply plugin: 'maven-publish'
 
-group = 'com.jinx.component'
+group = 'com.component'
 version = '1.0.0'
 
 dependencies {
-
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 publishing {
